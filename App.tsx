@@ -7,6 +7,8 @@ import {
 } from 'react-native-safe-area-context';
 import './unistyles';
 import { CodePushButton } from './src/ReloadButton';
+import { codePushOptions } from './src/codePushOptions';
+import CodePush from '@bravemobile/react-native-code-push';
 
 function App() {
   return (
@@ -30,9 +32,6 @@ const AppScreen = () => {
           {
             paddingTop: top,
             paddingBottom: bottom,
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: 20,
           },
         ]}
       >
@@ -56,7 +55,9 @@ const ErrorScreen = ({ error }: { error: Error | null }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 
-export default App;
+export default CodePush(codePushOptions)(App);
