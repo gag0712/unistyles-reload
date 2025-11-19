@@ -1,40 +1,57 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
+import { useState } from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
+import { StyleSheet, Text, View } from 'react-native';
 import {
   SafeAreaProvider,
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
+import './unistyles';
+import { CodePushButton } from './src/ReloadButton';
 
 function App() {
-  const isDarkMode = useColorScheme() === 'dark';
-
   return (
     <SafeAreaProvider>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
+      <AppScreen />
     </SafeAreaProvider>
   );
 }
 
-function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
-
+const AppScreen = () => {
+  const { top, bottom } = useSafeAreaInsets();
+  const [error, setError] = useState<Error | null>(null);
   return (
-    <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
+    <ErrorBoundary
+      onError={e => setError(e)}
+      fallback={<ErrorScreen error={error} />}
+    >
+      <View
+        style={[
+          styles.container,
+          {
+            paddingTop: top,
+            paddingBottom: bottom,
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: 20,
+          },
+        ]}
+      >
+        <CodePushButton />
+      </View>
+    </ErrorBoundary>
+  );
+};
+
+const ErrorScreen = ({ error }: { error: Error | null }) => {
+  const { top, bottom } = useSafeAreaInsets();
+  return (
+    <View
+      style={[styles.container, { paddingTop: top, paddingBottom: bottom }]}
+    >
+      <Text>{error?.message}</Text>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {

@@ -1,19 +1,24 @@
 {
   "name": "UnistylesReload",
   "version": "0.0.1",
+  "packageManager": "yarn@4.10.3",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "lint": "eslint .",
-    "start": "react-native start",
+    "start": "react-native start --client-logs",
     "test": "jest"
   },
   "dependencies": {
+    "@bravemobile/react-native-code-push": "^12.2.0",
     "react": "19.1.1",
+    "react-error-boundary": "^6.0.0",
     "react-native": "0.82.1",
-    "@react-native/new-app-screen": "0.82.1",
-    "react-native-safe-area-context": "^5.5.2"
+    "react-native-edge-to-edge": "^1.7.0",
+    "react-native-nitro-modules": "^0.31.6",
+    "react-native-safe-area-context": "^5.5.2",
+    "react-native-unistyles": "^3.0.17"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
