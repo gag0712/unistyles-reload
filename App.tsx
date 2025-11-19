@@ -35,6 +35,7 @@ const AppScreen = () => {
           },
         ]}
       >
+        <Text>this is new bundle version 1.0.1</Text>
         <CodePushButton />
       </View>
     </ErrorBoundary>
@@ -57,6 +58,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    gap: 20,
   },
 });
 
