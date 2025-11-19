@@ -1,0 +1,14 @@
+{
+  "1.0.0": {
+    "enabled": true,
+    "mandatory": false,
+    "downloadUrl": "",
+    "packageHash": ""
+  },
+  "1.0.1": {
+    "enabled": true,
+    "mandatory": true,
+    "downloadUrl": "https://s3.ap-northeast-2.amazonaws.com/bundles.goodoc-develop.co.kr/ios/bundles/d58e7344a1e475a464dd47bb431ec5c962e31c200825027c6c05313b3e86660f",
+    "packageHash": "d58e7344a1e475a464dd47bb431ec5c962e31c200825027c6c05313b3e86660f"
+  }
+}
